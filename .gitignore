@@ -1,0 +1,19 @@
+# Secrets — never commit real credentials
+.env
+*.env
+!.env.example
+api_keys.txt
+local_config.json
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor artifacts
+.vscode/
+.idea/
