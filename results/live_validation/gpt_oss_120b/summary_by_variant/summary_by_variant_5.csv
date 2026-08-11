@@ -1,0 +1,5 @@
+variant,runs,errors,avg_latency_ms,avg_tokens_per_second_total,avg_total_tokens,avg_required_tool_recall,uncertainty_mention_rate
+Full PR-SC MCP,10,0,669.6,1550.332,978.8,1.0,1.0
+Naive MCP,10,0,787.2,1588.975,954.8,1.0,1.0
+"Routing + Packaging, no compression",10,0,787.4,1409.144,1021.6,1.0,1.0
+Routing MCP,10,0,789.5,1423.841,918.8,1.0,1.0

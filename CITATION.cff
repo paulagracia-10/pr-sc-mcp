@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "Efficient Context Engineering for MCP-based LLM Agents"
+message: "If you use this repository, please cite the accompanying paper."
+authors:
+  - family-names: "Gracia"
+    given-names: "Paula"
+repository-code: "https://github.com/REPLACE_WITH_REPOSITORY_URL"
+version: "1.0.0"
+date-released: "2026-07-06"

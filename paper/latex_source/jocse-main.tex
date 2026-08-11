@@ -1,0 +1,70 @@
+\documentclass[jocse]{jocseart}
+
+\usepackage{booktabs} % For formal tables
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{balance}
+\usepackage[section]{placeins}
+
+% Fix for "font expansion: auto expansion is only possible with scalable fonts"
+% triggered by microtype's default expansion setting with this class's fonts.
+\microtypesetup{expansion=false}
+
+
+%Please do not add packages that will change the overall formatting of the document, as these will be removed by the technical editor.
+%If you are using tikz for image production, please include a screenshot of that image in your submission.
+
+% Copyright
+\setcopyright{jocsecopyright}
+
+% DOI will be assigned by the technical editor when the issue is assembled.
+\jocseDOI{10.22369/issn.2153-4136/x/x/x }
+
+% the following commands remove page numbers and headers that JOCSE formatting adds
+% in preparation for publication DO NOT REMOVE THESE
+\pagestyle{plain}
+\pagenumbering{gobble}
+
+\begin{document}
+% Title info
+\title{STUDENT PAPER: Efficient Context Engineering for MCP-based LLM Agents: Predictive Tool Routing, Source-Aware Compression, Evidence Packaging and Observable Context Optimization}
+
+% Author(s) info
+%for affiliation, please include only main descriptors, such as department, university.
+
+\author{Paula Gracia}
+\affiliation{American School of Madrid}
+
+% Abstract
+\begin{abstract}
+The Model Context Protocol (MCP) standardizes how large language model (LLM) agents connect to tools, APIs and data sources, but connectivity alone does not solve the problem of context growth: agents that can call many tools tend to retrieve excessive raw output, duplicate context across steps, and pass noisy or weakly relevant evidence into the model. This paper proposes PR-SC MCP, a Predictive Routing and Source-Aware Compression context-governance architecture that treats context as a managed resource across four mechanisms: predictive tool routing, source-aware compression, evidence packaging with anti-lost-in-the-middle ordering, and an observability feedback loop built on an evidence ledger.
+
+The architecture is validated in two stages: an initial Architecture Validation under controlled and semi-real conditions with deterministic scoring, followed by Live Validation against three open-weight models---gpt-oss-120b, gemma-4-31b, and zai-glm-4.7---served on Cerebras infrastructure and evaluated with a single, consistent runner script. Under the regenerated Architecture Validation runner that accompanies this study, PR-SC MCP reduces prompt tokens by 47.1\%, tool calls by 39.1\%, and simulated latency by 27.4\% relative to an exhaustive MCP baseline, while improving deterministic answer accuracy and faithfulness to 2.00 on the 0--2 scoring scale. Under Live Validation, all three models completed the full 10-case $\times$ 4-variant $\times$ 5-run matrix, yielding 200 generations per model and 600 generations in total, with zero recorded errors. Full PR-SC MCP remains near token-neutral relative to the Exhaustive MCP Baseline across all three models, with token overheads of approximately 0.3--1.9\%. It reduces mean latency for gpt-oss-120b and gemma-4-31b, by approximately 26.17\% and 30.24\% respectively, and shows a positive but statistically uncertain mean latency reduction for zai-glm-4.7. Deterministic quality and robustness checks---explicit uncertainty handling, correct stale-versus-fresh evidence prioritization, correct security-distractor handling, and overclaim-risk monitoring---remain at or near-ceiling levels across the tested models. A 60-answer semantic review calibration further found high and tightly clustered semantic scores across variants, with no evidence of quality degradation for Full PR-SC MCP in the reviewed sample. These findings support PR-SC MCP as a context-governance architecture that preserves evidence discipline without introducing a material live-generation efficiency penalty, while also showing that latency gains remain model-dependent.
+
+The central contribution is both architectural and methodological: scalable MCP-based agents benefit from disciplined governance over the full lifecycle of context, and this benefit is not an artifact of any single model or benchmark run---it is supported by a reproducible deterministic Architecture Validation runner and by live validation across three independent open-weight models evaluated under a single consistent methodology.
+\end{abstract}
+
+
+% Keywords - provide a comma separated list in the braces below
+\keywords{Model Context Protocol, LLM agents, context engineering, tool routing, prompt compression, agent evaluation}
+
+% Generate the title
+\maketitle
+
+% Input the body of the paper by providing the file name below. As illustrated below,
+% if the file name is jocse-body.tex, then input{jocse-body}
+%Please use this simple set up -- makefiles or other structures will cause delays in publication.
+
+\input{jocse-body}
+
+\balance
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{jocse-bibliography}
+
+%If you are including an appendix, please use the structure below.
+%\appendix
+%\section{An appendix}
+%The text for the appendix.
+
+\end{document}

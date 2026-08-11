@@ -1,0 +1,50 @@
+{
+  "runner": "pr_sc_mcp_architecture_validation_runner.py",
+  "runner_type": "deterministic_architecture_validation",
+  "methodological_boundary": "no live LLM calls; no live MCP server calls; controlled/semi-real benchmark only",
+  "cases": 24,
+  "variants": 8,
+  "expected_runs": 192,
+  "actual_runs": 192,
+  "tool_domains": [
+    "metrics",
+    "logs",
+    "traces",
+    "github",
+    "topology",
+    "docs",
+    "tickets",
+    "security"
+  ],
+  "failure_modes": [
+    "timeout",
+    "partial_response",
+    "malformed_json",
+    "stale_data",
+    "conflicting_evidence",
+    "overlong_output",
+    "duplicated_records",
+    "missing_required_tool",
+    "rate_limited",
+    "schema_drift",
+    "irrelevant_high_confidence_signal",
+    "mixed_granularity"
+  ],
+  "variant_names": [
+    "Naive MCP",
+    "Direct Long-Context",
+    "Compression-only MCP",
+    "Traditional RAG",
+    "Routing MCP",
+    "Routing + Compression, no packaging",
+    "Routing + Packaging, no compression",
+    "Full PR-SC MCP"
+  ],
+  "outputs": [
+    "architecture_validation_run_records.json",
+    "architecture_validation_run_summary.csv",
+    "architecture_validation_summary_by_variant.csv",
+    "architecture_validation_case_summary.csv"
+  ],
+  "duration_seconds": 0.2338
+}
